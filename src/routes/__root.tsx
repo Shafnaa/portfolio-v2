@@ -18,7 +18,7 @@ function RootComponent() {
     <>
       <SidebarProvider>
         <AppSidebar />
-        <main>
+        <main className="flex flex-1">
           <Outlet />
         </main>
       </SidebarProvider>
