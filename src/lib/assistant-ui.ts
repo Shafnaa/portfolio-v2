@@ -4,10 +4,7 @@ import { getChatCompletions } from "./api/chat";
 
 const modelAdapter: ChatModelAdapter = {
     async run({ messages }) {
-        const result = await getChatCompletions(messages.map((message) => ({
-            role: message.role,
-            content: message.content[0].type === 'text' ? message.content[0].text : '',
-        })))
+        const result = await getChatCompletions([...messages])
         
         return {
             content: [
@@ -22,8 +19,8 @@ const modelAdapter: ChatModelAdapter = {
 
 const config = AuiConfig({
     suggestions: Suggestions([
-        "Plan a project",
-        "Explain a concept",
+        "Tell me your experience with RAG!",
+        "Have you ever worked with Swift?",
     ])
 })
 

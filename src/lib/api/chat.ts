@@ -1,6 +1,8 @@
+import type { ThreadMessage } from "@assistant-ui/react";
+
 import { BACKEND_BASE_URL } from "../constant"
 
-const getChatCompletions = async (messages: { role: string, content: string }[]) => {
+const getChatCompletions = async (messages: ThreadMessage[]) => {
     const res = await fetch(`${BACKEND_BASE_URL}/api/v1/chat/completions`, {
         method: 'POST',
         mode: 'cors',
